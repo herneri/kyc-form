@@ -18,9 +18,16 @@
 */
 
 import React, {useRef} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function FirstForm() {
 	const element_ref = useRef(null);
+	const navigate = useNavigate();
+
+	function handle_next() {
+		navigate("/step-2");
+		return;
+	}
 
 	return (
 		<form>
@@ -43,7 +50,7 @@ function FirstForm() {
 			<input type="file" id="doc"/>
 
 			<br/>
-			<button> Next </button>
+			<button onClick={handle_next}> Next </button>
 		</form>
 
 	);
